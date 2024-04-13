@@ -3,6 +3,7 @@ import os
 os.system("cls")
 
 while True:
+    os.system("cls")
     respuesta = input("""Este programa en Python te pedirá la siguiente información:
     1) Nombres
     2) Apellidos

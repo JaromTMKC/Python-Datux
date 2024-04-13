@@ -9,6 +9,7 @@ os.system("cls")
 
 while True:
     if opcion.upper() == "S":
+        os.system("cls")
         clave = input("""Digite cualquier cosa: 
                       'Psst... Pueden ser números, letras o decimales'\n""")
 
@@ -24,7 +25,7 @@ while True:
         op = input("¿Desea continuar? (S/N)")
         os.system("cls")
     
-        if op.upper() == "N":
+        if op.upper() != "S":
             os.system("cls")
             print("¡Adiós!")
             break
