@@ -1,5 +1,5 @@
-from db import conecta
-from Model import Usuario
+from .db import conecta
+from Model.usuario import Usuario
 
 class usuarioController():
 
@@ -24,18 +24,21 @@ class usuarioController():
             raise Exception(e)
     
     @classmethod
-    def registrarUsuario(usuario):
+    def registrarUsuario(self, usuario):
         try:
             conexion = conecta()
             cursor = conexion.cursor()
 
             query = "INSERT INTO Usuario VALUES (?, ?, ?, ?, ?, ?, ?)"
-            cursor.execute(query, (usuario[0], usuario[1], usuario[2], usuario[3], usuario[3], usuario[4], usuario[5], usuario[6]))
-            
+            cursor.execute(query, (usuario[0], usuario[1], usuario[2], usuario[3], usuario[4], usuario[5], usuario[6]))
+
             conexion.commit()
             conexion.close()
+            
+            return 0
         except Exception as e:
-            raise Exception(e)
+            print("Error al registrar usuario:", e)
+            return -1
     
     @classmethod
     def obtenerUltimoID(self):
