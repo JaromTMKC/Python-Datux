@@ -8,7 +8,7 @@ class Persona:
 
 ListaPersonas=[]
 
-with open('./S6/personas.txt','r') as f:
+with open('/workspaces/python0424/modulo4/personas.txt','r') as f:
     data=f.readlines()
     for i in data:
         info=i.split(';')
