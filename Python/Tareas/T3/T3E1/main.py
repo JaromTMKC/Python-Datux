@@ -3,6 +3,7 @@ from Controller.usuarioController import usuarioController
 from Model.usuario import Usuario
 from Controller.generarIngresoCSV import generacion
 from Controller.reporteCSV import reporteVentas
+from Controller.generarGrafico import generarGrafico
 
 import os
 import time
@@ -66,10 +67,19 @@ def main():
                     os.system("cls")
                     print("No se olvide primero de usar la opción 1 del menú!")
                     time.sleep(1.5)
-            #elif opcion == '3':
-                # Opción 3: Generar gráfico de ventas
-                #import generar_grafico
-                #generar_grafico.generar_grafico_ventas()
+            elif opcion == '3':
+                print("En esta opción se generará un gráfico de barras en correlación del total de ventas de cada categoría.")
+                os.system("cls")
+
+                respuestaGrafico = reporteVentas.obtenerCategorias()
+                os.system("cls")
+
+                if respuestaGrafico:
+                    generarGrafico.generar()
+                else:
+                    os.system("cls")
+                    print("No se olvide primero de usar la opción 1 del menú!")
+                    time.sleep(1.5)
             #elif opcion == '4':
                 # Opción 4: Generar bitácora
                 #import bitacora
