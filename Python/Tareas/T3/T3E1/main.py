@@ -2,6 +2,7 @@ from Controller.menu import menu
 from Controller.usuarioController import usuarioController
 from Model.usuario import Usuario
 from Controller.generarIngresoCSV import generacion
+from Controller.reporteCSV import reporteVentas
 
 import os
 import time
@@ -18,7 +19,7 @@ def main():
     if (encontrado != None):
         while True:
             os.system("cls")
-            
+
             print(f"Bienvenid@ {usuario.user_usu}!\n\n")
             menu.mostrar_menu()
             opcion = input("Seleccione una opción: ")
@@ -32,10 +33,39 @@ def main():
 
                 if salidaGen == 0:
                     time.sleep(1.5)
-            #elif opcion == '2':
-                # Opción 2: Generar reporte de ventas
-                #import generar_reporte
-                #generar_reporte.generar_reporte_ventas()
+            elif opcion == '2':
+                os.system("cls")
+
+                print("Ahora se mostrará en pantalla las caregorías por la cuales podrá filtrar el reporte (en base a esa categoría se generará el reporte).")
+                time.sleep(1.8)
+                os.system("cls")
+
+                categorias = reporteVentas.obtenerCategorias()
+                if categorias:
+                    print("-----Categorías-----\n")
+                    for categoria in categorias:
+                        print(categoria, "\n")
+                    
+                    cat = input("¿En base a qué categoría quiere filtrar el reporte?\n")
+                    
+                    os.system("cls")
+                    
+                    montoMinimo = float(input("¿Cuál será el monto mínimo a tomar en cuenta (precio del producto)?\n"))
+                    
+                    salidaReporte = reporteVentas.generarReporte(montoMinimo, cat)
+                    
+                    if salidaReporte is not None:
+                        os.system("cls")
+                        print(f"Total de ventas filtradas por categoria '{cat}', monto mínimo '{montoMinimo}\n      ${salidaReporte}")
+                    else:
+                        print("No se pudo generar el reporte de ventas.")
+
+                    time.sleep(3.5)
+                    os.system("cls")
+                else :
+                    os.system("cls")
+                    print("No se olvide primero de usar la opción 1 del menú!")
+                    time.sleep(1.5)
             #elif opcion == '3':
                 # Opción 3: Generar gráfico de ventas
                 #import generar_grafico
