@@ -1,3 +1,5 @@
+from .bitacora import Bitacora
+
 class menu():
 
     @classmethod
@@ -8,3 +10,5 @@ class menu():
         print("3. Generar gráfico de ventas")
         print("4. Generar bitácora")
         print("5. Salir")
+
+        Bitacora.log("Acción: Menú cargado")

@@ -1,5 +1,6 @@
 import csv
 from .db import conecta
+from .bitacora import Bitacora
 
 class generacion():
     
@@ -30,9 +31,11 @@ class generacion():
             conexion.close()
 
             print("Generación Exitosa!")
+            Bitacora.log("Acción: Opción 1 elegida")
+            Bitacora.log("Acción: Inserción de datos a la tabla Ventas correcta")
             return 0
         except Exception as e:
-            print("Error:", e)
+            Bitacora.log("Error en inserción de datos:", e)
 
     @classmethod
     def eliminación(self):
@@ -46,5 +49,6 @@ class generacion():
             conexion.commit()
             conexion.close()
 
+            Bitacora.log("Acción: Eliminación de datos en la tabla Ventas correcta")
         except Exception as e:
-            print("Error al eliminar registros:", e)
+            Bitacora.log("Error al eliminar registros", e)

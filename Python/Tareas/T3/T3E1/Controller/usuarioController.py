@@ -1,5 +1,6 @@
 from .db import conecta
 from Model.usuario import Usuario
+from .bitacora import Bitacora
 
 class usuarioController():
 
@@ -16,9 +17,11 @@ class usuarioController():
             if row is not None:
                 usuario = Usuario(row[0], row[1], row[2], row[3], row[4], row[5], row[6])
                 conexion.close()
+                Bitacora.log("Acción: Usuario logueado correctamente")
                 return usuario
             else:
                 conexion.close()
+                Bitacora.log("Acción: Usuario no encontrado, procediendo a crear un nuevo usuario.")
                 return None
         except Exception as e:
             raise Exception(e)
@@ -35,8 +38,10 @@ class usuarioController():
             conexion.commit()
             conexion.close()
             
+            Bitacora.log("Acción: Usuario creado correctamente")
             return 0
         except Exception as e:
+            Bitacora.log("Error al registrar usuario:", e)
             print("Error al registrar usuario:", e)
             return -1
     
@@ -50,6 +55,7 @@ class usuarioController():
 
         ultimo = cursor.fetchone()[0]
 
+        Bitacora.log("Acción: Retorno de último número de registro correcto.")
         return ultimo
 
     @classmethod
@@ -62,4 +68,5 @@ class usuarioController():
             nuevo = numero + 1
         
         id = f"USR-{nuevo:03d}"
+        Bitacora.log("Acción: ID nuevo generado correctamente")
         return id

@@ -1,11 +1,16 @@
 import sqlite3
+from .bitacora import Bitacora
 
 try:
     def conecta():
         conexion = sqlite3.connect("Tareas/T3/T3E1/database/usuarioDB.db")
         return conexion
+    
+    Bitacora.log("Acción: Intento de conexión a la BD")
 
     conexion = conecta()
+
+    Bitacora.log("Acción: Conexión a la BD realizada")
 
     cursor = conexion.cursor()
     query = """CREATE TABLE IF NOT EXISTS Usuario(
@@ -22,5 +27,7 @@ try:
 
     conexion.commit()
     conexion.close()
+
+    Bitacora.log("Acción: Creación de tabla Usuario")
 except sqlite3.Error as e:
-    print("Error al conectar a la base de datos por:\n", e.args[0])
+    Bitacora.log("Error al conectar a la base de datos por:\n", e.args[0])

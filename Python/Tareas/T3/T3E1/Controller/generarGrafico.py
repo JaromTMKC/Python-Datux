@@ -1,6 +1,7 @@
 from .db import conecta
 import matplotlib.pyplot as plt
 import pandas as pd
+from .bitacora import Bitacora
 
 class generarGrafico():
     @staticmethod
@@ -25,7 +26,9 @@ class generarGrafico():
             plt.show()
 
             conexion.close()
-            
-            return 0
+
+            Bitacora.log("Acción: Opción 3 elegida")
+            Bitacora.log("Acción: Gráfico generado correctamente")
         except Exception as e:
-            print("Error al generar el gráfico de ventas por categoría:", e)
+            Bitacora.log("Error al generar el gráfico:", e)
+            print("Error al generar el gráfico:", e)

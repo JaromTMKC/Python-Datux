@@ -4,6 +4,7 @@ from Model.usuario import Usuario
 from Controller.generarIngresoCSV import generacion
 from Controller.reporteCSV import reporteVentas
 from Controller.generarGrafico import generarGrafico
+from Controller.bitacora import Bitacora
 
 import os
 import time
@@ -37,7 +38,7 @@ def main():
             elif opcion == '2':
                 os.system("cls")
 
-                print("Ahora se mostrará en pantalla las caregorías por la cuales podrá filtrar el reporte (en base a esa categoría se generará el reporte).")
+                print("Ahora se mostrará en pantalla las categorías por la cuales podrá filtrar el reporte (en base a esa categoría se generará el reporte).")
                 time.sleep(1.8)
                 os.system("cls")
 
@@ -80,15 +81,19 @@ def main():
                     os.system("cls")
                     print("No se olvide primero de usar la opción 1 del menú!")
                     time.sleep(1.5)
-            #elif opcion == '4':
-                # Opción 4: Generar bitácora
-                #import bitacora
-                #bitacora.crear_bitacora()
+            elif opcion == '4':
+                Bitacora.log("Acción: Opción 4 elegida")
+                Bitacora.mostrarBitacora()
+
+                print("Puede ver mejor el archivo en la carpeta Static/Assets, el archivo tiene el nombre de bitacora.txt")
+                time.sleep(5)
             elif opcion == '5':
+                Bitacora.log("Acción: Opción 5 elegida")
                 generacion.eliminación()
                 print("Saliendo del programa...")
                 break
             else:
+                Bitacora.log("Acción: Opción elegida no válida")
                 print("Opción no válida. Por favor, seleccione una opción válida.")
 
     else :
@@ -113,4 +118,5 @@ def main():
             print("Error al registrar usuario. Por favor, inténtalo de nuevo.")
 
 if __name__ == "__main__":
+    Bitacora.log("Acción: Programa iniciado")
     main()
