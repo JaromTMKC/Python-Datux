@@ -57,3 +57,25 @@
 [2024-05-01 20:16:30] Acción: Menú cargado
 [2024-05-01 20:16:32] Acción: Opción 5 elegida
 [2024-05-01 20:16:32] Acción: Eliminación de datos en la tabla Ventas correcta
+[2024-05-01 20:20:51] Acción: Intento de conexión a la BD
+[2024-05-01 20:20:51] Acción: Conexión a la BD realizada
+[2024-05-01 20:20:51] Acción: Creación de tabla Usuario
+[2024-05-01 20:20:52] Acción: Programa iniciado
+[2024-05-01 20:20:58] Acción: Usuario logueado correctamente
+[2024-05-01 20:20:58] Acción: Menú cargado
+[2024-05-01 20:21:15] Acción: Opción 1 elegida
+[2024-05-01 20:21:15] Acción: Inserción de datos a la tabla Ventas correcta
+[2024-05-01 20:21:16] Acción: Menú cargado
+[2024-05-01 20:22:00] Acción: Opción 2 elegida
+[2024-05-01 20:22:00] Acción: Categorías cargadas correctamente
+[2024-05-01 20:22:14] Acción: generación de reporte exitosa.
+[2024-05-01 20:22:17] Acción: Menú cargado
+[2024-05-01 20:22:21] Acción: Opción 2 elegida
+[2024-05-01 20:22:21] Acción: Categorías cargadas correctamente
+[2024-05-01 20:22:31] Acción: Opción 3 elegida
+[2024-05-01 20:22:31] Acción: Gráfico generado correctamente
+[2024-05-01 20:22:31] Acción: Menú cargado
+[2024-05-01 20:22:37] Acción: Opción 4 elegida
+[2024-05-01 20:22:42] Acción: Menú cargado
+[2024-05-01 20:22:44] Acción: Opción 5 elegida
+[2024-05-01 20:22:44] Acción: Eliminación de datos en la tabla Ventas correcta
